@@ -1,0 +1,47 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{optics}
+\usetikzlibrary{calc}
+
+\newcommand{\oeil}[1][]
+{
+\draw[#1,thick,rounded corners] (-15:1)--(0,0)--(15:1);
+\draw[#1] (-15:0.8) arc (-15:15:0.8);
+\draw[#1,fill=black] (0:0.75) ellipse(0.05 and 0.1);
+}
+
+\newcommand{\rouedentee}[1][]
+           {
+               \draw[#1] (-0.1,-2) -- (-0.1,2) -- (0.1,2) -- (0.1,-2) -- cycle;
+               \draw[#1] (-0.4,0)--(0.4,0);
+  \foreach \a in {-1.8,-1.6,...,1.8} {
+    \draw[#1] (-0.1,\a)--(0.1,\a);
+  }
+  }
+\begin{document}
+\begin{tikzpicture}[use optics,scale=.5]
+
+  
+  \rouedentee[shift={(-3,2)}];
+  
+  \draw[red, >=stealth, put arrow/every arrow/.style={red},put arrow={at=0.2}, put arrow={at=0.5}, put arrow={at=0.8}] (0,-5) -- (0,0);
+  
+  \draw[red, >=stealth, put arrow/every arrow/.style={red},put arrow={at=0.2}, put arrow={at=0.5}, put arrow={at=0.8}] (0,0) -- (-15,0);
+  
+  \draw[red, >=stealth, put arrow/every arrow/.style={red},put arrow={at=0.2}, put arrow={at=0.5}, put arrow={at=0.8}] (-15,0.2) -- (4,0.2);
+
+  \node[semi-transparent mirror, rotate=45] (S) at (0,0) {};
+  \node[mirror, rotate=180] at (-15,0) {};
+  \oeil[shift={(5,0.2)},rotate=180,scale=0.9];
+  \filldraw (0,-5) circle (0.05);
+
+  \node at (-3,5) {Roue dentée};
+  \node[below] at (0,-5) {$S$};
+  \node[left] at (-15,3) {$M$};
+  \node at (2,-2) {$R$};
+  \node[below] at (5,0) {$O$};
+  \draw[>=stealth, <->] (-15,-3)--(-3,-3);
+  \node[below] at (-9,-3) {$d$};
+\end{tikzpicture}
+\end{document}

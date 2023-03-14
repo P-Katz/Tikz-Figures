@@ -1,0 +1,43 @@
+% Some definitions of points in an elliptical orbit
+
+\documentclass[tikz, border = 1 cm]{standalone}
+\usepackage{tikz}
+
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+
+\begin{document}
+\tdplotsetmaincoords{60}{130}
+\begin{tikzpicture}[tdplot_main_coords]
+  \coordinate (O) at (0, 0,0);
+  \coordinate (Psi) at (3,3,0);
+  \coordinate (M) at (-5.5,-3.5,1.2);
+  \coordinate (P) at (-5.5,-0.44,1.2);
+  \tkzDrawPoints(O);
+  \draw (O) -- (Psi);
+  \draw (O) -- (P);
+  \draw (O) -- (M);
+  \def\rad{5cm}
+  \def\moonangle{60}
+  \def\sunangle{13.7}
+  \draw[fill=red,opacity=0.1] (-6,-3,0) -- (-6,3,0) -- (6,3,0) -- (6,-3,0) -- cycle;
+  \draw (-6,-3,0) -- (-6,3,0) -- (6,3,0) -- (6,-3,0) -- cycle;
+  \draw[thick] (0,-3,0) -- (0, 3 ,0);
+  \draw[directed,rotate = {\moonangle}] (0,0) ellipse[x radius = \rad, y radius = 2.48cm];
+  \draw[rotate = {\moonangle},fill=green, opacity=0.2] (0,0) ellipse[x radius = \rad, y radius = 2.48cm];
+
+  
+  \node[below] at (Psi) {$\Psi$};
+  \node at (0.5,0,0) {S};
+  \node[left] at (0,-3.1,0) {B};
+  \node[right] at (0,3.1,0) {A};
+  \node[above] at (M) {M};
+  \node[above,right] at (P) {P};
+
+  \begin{scope}
+        \clip (0,3,0) -- (-6,3,0) -- (-2,3,2) -- cycle; % triangle AEC
+        \draw [rotate={\moonangle},red] (3.5,3.5,0) ellipse (1 and 0.5);
+      \end{scope}
+        \node [right,red] at (0,3.5,1) {$i$};
+\end{tikzpicture}
+\end{document}

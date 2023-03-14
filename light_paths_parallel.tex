@@ -1,0 +1,39 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+\usepackage{tikz}
+\usepackage{tikz,bm}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{angles,arrows,calc,quotes}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes}
+
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,%
+    calc,%
+}
+
+\usetikzlibrary{calc,fadings,decorations.pathreplacing,arrows,positioning}
+
+\usepackage{tkz-euclide}
+
+\begin{document}
+    \begin{tikzpicture}
+                
+
+                 \draw[black,line width=.5pt](0,0) -- (4,0);
+                 \draw (0,0.1cm) -- (0,-0.1cm) node[below] {$R$};
+                 \draw (4,0.1cm) -- (4,-0.1cm) node[below] {$M_1'$};
+                 \draw[black,line width=.5pt](4,0) -- (5,0);
+                 \draw (5,0.1cm) -- (5,-0.1cm) node[below] {$M_1''$};
+                 
+                 \draw[red,line width=.5pt,<->,>=stealth](0,1) -- (5,1);
+                 \node[red,above] at (2.5,1) {$c\tau_1$};
+                 
+                 \draw[blue,line width=.5pt,<->,>=stealth](0,-1) -- (4,-1);
+                 \node[blue,below] at (2,-1) {$l$};
+                 
+                 \draw[green,line width=.5pt,<->,>=stealth](4,-1) -- (5,-1);
+                 \node[green,below] at (4.5,-1) {$u\tau_1$};
+
+    \end{tikzpicture}
+    \end{document}

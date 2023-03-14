@@ -1,0 +1,46 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+\usepackage{tikz}
+
+\usepackage{tkz-euclide}
+\begin{document}
+
+\begin{tikzpicture}
+      \newcommand{\angledroit}[1][2]
+                 {\draw[#1] (0,0.25)-|(0.25,0);
+                 }
+                 
+  \tkzDefPoint(0,0){T}
+  \tkzDefPoint(0,2){A1}
+  \tkzDefPoint(0,-2){A2}
+  \tkzDefPoint(10,0){P}
+  
+  
+  \filldraw[fill=blue] (T) circle (0.05);
+  \filldraw[fill=black] (P) circle (0.05);
+  \draw (T) circle (2);
+  \draw (P) circle (1);
+  \draw (0,1.9) -- (0,2.1);
+  \draw (0,-1.9) -- (0,-2.1);
+  \draw (A1) -- (P);
+  \draw (A2) -- (P);
+  \draw[dashed] (T) -- (P);
+  \draw[dashed] (T) -- (A1);
+
+  \begin{scope}
+    \clip (A1) -- (T) -- (P) -- cycle;
+    \draw[red] (P) circle (2);
+  \end{scope}
+
+  \angledroit[shift={(0,0)}];
+
+  \node[above] at (A1) {$A$};
+  \node[below] at (A2) {$A'$};
+  \node[below] at (T) {$T$};
+  \node[below] at (P) {$P$};
+  
+  \node[red] at (7.75,0.25) {$\alpha$};
+  \node[left] at (0,1) {$r$};
+\end{tikzpicture}
+
+
+\end{document}

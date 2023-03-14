@@ -1,0 +1,40 @@
+% Definitions of some values on an elliptical orbit
+
+\documentclass[tikz, border = 1 cm]{standalone}
+\usepackage{tikz}
+
+\usepackage{tkz-euclide}
+\usetikzlibrary{intersections}
+
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+      mark=at position .65 with {\arrow{latex}}}}]
+\begin{document}
+
+\begin{tikzpicture}
+ \tkzDefPoint(0,0){A}
+ \tkzDefPoint(3,0){C}
+ \tkzDefPoint(-3,0){D}
+ \tkzDefPoint(-2.6,0){F1}
+ \tkzDefPoint(1.6,0){F2}
+ \tkzDefPoint(2.6,1){E}
+ 
+ \draw[->,>=stealth](E)--(-1,-2.6);
+   
+   
+   \tkzDrawPoints(F2);
+   \tkzDrawPoints(E);
+   \tkzDrawPoints(A);
+   \draw[->,>=stealth,directed] (A) ellipse (3 and 2);
+      
+   \draw (D)--(C);
+   \draw[<->,>=stealth] (-3,0.3)--(0,0.3) node[fill=white] at (-1.5,0.3) {Demi grand axe};
+      
+   \node at (2.8,1.2) {E};
+   \node at (2,-0.3) {Soleil};
+   \node[right] at (C) {Périhélie};
+   \node[left] at (D) {Aphélie};
+   \node[below] at (-1,-2.6) {$\Psi$};
+   \node[below] at (-3,-1.8) {Chemin de la planète};
+      
+\end{tikzpicture}
+\end{document}

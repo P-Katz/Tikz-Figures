@@ -1,0 +1,47 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+\usepackage{tikz}
+
+\usepackage{tkz-euclide}
+\begin{document}
+
+\begin{tikzpicture}
+  \tkzDefPoint(0,0){A}
+  \tkzDefPoint(0,5){B}
+  
+  \tkzDefPoint(-2,0){K}
+  \tkzDefPoint(2,0){K1}
+
+  
+  \tkzDefPoint(-0.2,5.98){I1}
+  \tkzDefPoint(0.2,5.98){I2}  
+  
+  \draw (B) -- (0,-2);
+  \filldraw[fill=yellow] (A) circle (0.15);
+  \filldraw[fill=black] (B) circle (0.1);
+  \filldraw[fill=black] (K) circle (0.05);
+  \filldraw[fill=black] (K1) circle (0.05);
+  \filldraw[fill=black] (-1.67,1.1) circle (0.05);
+  \filldraw[fill=black] (1.67,1.1) circle (0.05);
+  \filldraw[fill=black] (I1) circle (0.05);
+  \filldraw[fill=black] (I2) circle (0.05);
+  \draw (A) circle (2);
+  \draw (B) circle (1);
+  
+  \filldraw [pattern=horizontal lines]
+  (0.1,5) -- (-0.1,5) -- (I1) --(I2) -- cycle;
+
+  \draw (K) -- (I1);
+  
+  \draw (K1) -- (I2);
+  
+  \node[above] at (I1) {$D$};
+  \node[above] at (I2) {$C$};
+  \node[left] at (K) {$K$};
+  \node[left] at (-1.67,1.1) {$L$};
+  \node[right] at (1.67,1.1) {$G$};
+  \node[below] at (0.2,5) {$B$};
+  \node[below] at (0.2,0) {$A$};
+  \node[above] at (0.2,2) {$H$};
+  \node[below] at (0,-2) {$E$};
+\end{tikzpicture}
+\end{document}
